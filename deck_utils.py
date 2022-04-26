@@ -7,6 +7,9 @@ import subprocess
 import os
 
 
+class ConfigNotFound(Exception):
+    pass
+
 AssetsPath = './Assets/'
 FontPath = './Assets/OpenSans-Bold.ttf'
 
@@ -24,8 +27,6 @@ def initialize_deck():
 def execute_command(command):
     #Separate command in spaces and put them in a list
     os.system(command)
-    
-    
 
 
 def key_pressed(deck, key):
@@ -44,10 +45,14 @@ def key_pressed(deck, key):
 
     
 def load_config(deck):
-    with open('config.json') as json_file:
-        global data
-        data = json.load(json_file)
-        
+    try:
+        with open('config.json') as json_file:
+            global data
+            data = json.load(json_file)
+    #file not exists
+    except FileNotFoundError:
+        raise ConfigNotFound("\nConfig not foun\nRead docs for creating a config file\n")
+    
     if data is not None and data.keys().__len__() == deck.KEY_COUNT:
         for key in data.keys():
             if data[key]['image'] == "":

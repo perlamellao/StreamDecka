@@ -25,6 +25,10 @@ if __name__ == "__main__":
     except KeyboardInterrupt:    
         print("\n\nKeyboardInterrupt detected. Exiting.")                  
         deck.reset()
-        deck.close()        
+        deck.close()
+    except ConfigNotFound as e:
+        print(e)
+        deck.reset()
+        deck.close()   
         
         
