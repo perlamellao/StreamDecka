@@ -44,7 +44,8 @@ The following tools were used in this project:
 
 ## :notebook: Todo ##
 
-- [ ] Make a ui.py file to make the ui more user friendly
+- [ ] Make a ui.py file to make the ui more user friendly.
+- [ ] Add support for multiple screens and folders.
 - [ ] Make a config editor.
 - [ ] Add custom key press image.
 - [ ] Add more stuff.
