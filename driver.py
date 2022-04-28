@@ -1,6 +1,5 @@
 from deck_utils import *
 import threading
-
 import time
 
 
@@ -20,7 +19,6 @@ if __name__ == "__main__":
     try:
         deck = initialize_deck()
         load_config(deck)
-
         main(deck)  
     except KeyboardInterrupt:    
         print("\n\nKeyboardInterrupt detected. Exiting.")                  
