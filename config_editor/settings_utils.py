@@ -6,19 +6,19 @@ def load_config():
     obj = json.loads(empty_config)
    
     try:
-        if os.stat('../config.json').st_size == 0:
-            with open('../config.json', 'w') as f:
+        if os.stat('config.json').st_size == 0:
+            with open('config.json', 'w') as f:
                 json.dump(obj, fp=f, indent=4)
-        with open('../config.json', 'r') as f:         
+        with open('config.json', 'r') as f:         
             return json.load(f)
 
     except FileNotFoundError:
-        with open('../config.json', 'w') as f:
+        with open('config.json', 'w') as f:
             json.dump(obj, fp=f, indent=4)
         return obj
        
        
 def save_config(config):
     obj = json.dumps(config, indent = 4)
-    with open('../config.json', 'w') as f:
+    with open('config.json', 'w') as f:
         f.write(obj)
